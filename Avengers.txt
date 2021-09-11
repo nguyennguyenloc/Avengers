@@ -1,0 +1,5 @@
+Trang chủ: http://localhost:3000/
+Login: http://localhost:3000/admin123/auth/login/
+Username: nguyenloc
+Password: 123456
+Chạy project: npm start
