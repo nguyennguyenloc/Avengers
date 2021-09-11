@@ -1,0 +1,8 @@
+<% 
+    documentHelper=(folder, imageName, alt = "image", className = "img-responsive img-avatar") => {
+        if(imageName == null){
+            imageName = 'no-avatar.png';
+        }
+        return `<a href="/${folder + imageName}">Download</a>`;
+    }
+%>

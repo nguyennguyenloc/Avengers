@@ -1,0 +1,54 @@
+<% include ./../../helpers/format-summary%>
+<% include ./../../helpers/format-date%>
+<% include ./../../../admin/helpers/image%>
+<%
+    const folder_uploads = 'uploads/article/'; 
+%>
+<div class="popular-post-wrap">
+    <h4 class="title">Popular Posts</h4>
+    <div class="feature-post relative"> 
+        <div class="feature-img relative">
+            <div class="overlay overlay-bg"></div>
+            <%-imageHelper(folder_uploads, itemsPopular[0].thumb, itemsPopular[0].category.name, "img-fluid")%>
+        </div>
+        <div class="details">
+            <ul class="tags">
+                <li><a href="/category/<%= itemsPopular[0].category.id%>"><%= itemsPopular[0].category.name%></a></li>
+            </ul>
+            <a href="/article/<%=itemsPopular[0].id%>">
+                <h3><%=itemsPopular[0].name%></h3>
+            </a>
+            <ul class="meta">
+                <li><a href="#"><span class="lnr lnr-user"></span><%= itemsPopular[0].created.user_name%></a></li>
+                <li><a href="#"><span class="lnr lnr-calendar-full"></span><%= moment(itemsPopular[0].created.time).format(systemConfig.format_time_frontend)%></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row mt-20 medium-gutters">
+        <% for(let i = 1; i < itemsPopular.length; i++){ %>
+        <div class="col-lg-6 single-popular-post">
+            <div class="feature-img-wrap relative">
+                <div class="feature-img relative">
+                    <div class="overlay overlay-bg"></div>
+                    <%-imageHelper(folder_uploads, itemsPopular[i].thumb, itemsPopular[i].category.name, "img-fluid")%>
+                </div>
+                <ul class="tags">
+                    <li><a href="/category/<%= itemsPopular[i].category.id%>"><%= itemsPopular[i].category.name%></a></li>
+                </ul>
+            </div>
+            <div class="details">
+                <a href="/article/<%=itemsPopular[i].id%>">
+                    <h4><%=itemsPopular[i].name%></h4>
+                </a>
+                <ul class="meta">
+                    <li><a href="#"><span class="lnr lnr-user"></span><%= itemsPopular[i].created.user_name%></a></li>
+                    <li><a href="#"><span class="lnr lnr-calendar-full"></span><%= moment(itemsPopular[i].created.time).format(systemConfig.format_time_frontend)%></a></li>
+                </ul>
+                <p class="excert">
+                    Lorem ipsum dolor sit amet, consecteturadip isicing elit, sed do eiusmod tempor incididunt ed do eius.
+                </p>
+            </div>
+        </div>
+        <%}%>
+    </div>
+</div>

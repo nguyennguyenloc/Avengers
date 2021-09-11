@@ -1,0 +1,34 @@
+<% include ./../../helpers/format-date%>
+<% include ./../../helpers/format-summary%>
+<%
+    const folder_uploads = 'uploads/documents/'; 
+%>
+
+<!-- <=JSON.stringify(itemsInCategory)> -->
+<div class="col-lg-8 post-list">
+    <!-- Start latest-post Area -->
+    <div class="latest-post-wrap">
+        <h4 class="cat-title"><%= itemsInCategory[0].category.name%></h4>
+        <%itemsInCategory.forEach((item) => { %>
+            <div class="single-latest-post row align-items-center">
+                <div class="col-lg-3 post-left text-center">                  
+                        <a href="/<%= folder_uploads + item.thumb%>">Download</a>                   
+                </div>
+                <div class="col-lg-9 post-right">
+                    <h4><%=item.name%></h4>
+                    <ul class="meta">
+                        <li><a href="#"><span class="lnr lnr-user"></span><%= item.created.user_name%></a></li>
+                        <li><a href="#"><span class="lnr lnr-calendar-full"></span><%-formatDate(item.created.time)%></a></li>
+                    </ul>
+                </div>
+            </div>
+            <%})%>
+        </div>
+    </div>
+    <!-- End latest-post Area -->
+
+    <% /*include view-list*/ %>
+    <% /*include view-thumb*/ %>
+
+
+
