@@ -1,7 +1,0 @@
-<% 
-sourceByHelpers=(user_name, time)=> {
-    let xhtmlResult = `<p class="mb-0 history-by"><i class="fa fa-user"></i>${user_name}</p>
-                        <p class="mb-0 history-time"><i class="fa fa-hourglass-start"></i>${moment(time).format(systemConfig.format_long_time)}</p>`;
-    return xhtmlResult;
-}
-%>
